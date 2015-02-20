@@ -129,6 +129,16 @@ public class FSM extends M3UATask {
      */
     public void signal(String name) throws UnknownTransitionException {
 
+        if (logger.isDebugEnabled()) {
+            StringBuilder sb = new StringBuilder();
+            for (StackTraceElement element: Thread.currentThread().getStackTrace())
+            {
+                sb.append(element);
+                sb.append("\n");
+            }
+            logger.debug(sb.toString());
+        }
+
         // check that start state defined
         if (start == null) {
             throw new IllegalStateException("The start sate is not defined");

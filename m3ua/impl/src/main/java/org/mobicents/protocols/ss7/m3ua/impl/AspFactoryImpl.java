@@ -582,6 +582,8 @@ public class AspFactoryImpl implements AssociationListener, XMLSerializable, Asp
     }
 
     private void handleCommUp() {
+        logger.info(String.format("handleCommUp : AspFactroy=%s Association=%s", this.name,
+                association.getName()));
 
         if (this.isHeartBeatEnabled()) {
             this.heartBeatTimer.reset();
@@ -674,6 +676,8 @@ public class AspFactoryImpl implements AssociationListener, XMLSerializable, Asp
 
     @Override
     public void onCommunicationUp(Association association, int maxInboundStreams, int maxOutboundStreams) {
+        logger.info(String.format("Communication channel up for AspFactroy=%s Association=%s", this.name,
+                association.getName()));
         this.maxOutboundStreams = maxOutboundStreams;
         // Recreate SLS table. Minimum of two is correct?
         this.createSLSTable(Math.min(maxInboundStreams, maxOutboundStreams) - 1);
@@ -699,6 +703,8 @@ public class AspFactoryImpl implements AssociationListener, XMLSerializable, Asp
 
     @Override
     public void onPayload(Association association, org.mobicents.protocols.api.PayloadData payloadData) {
+        logger.info(String.format("Payload for AspFactroy=%s Association=%s [ %s : %s ]", this.name,
+                association.getName(),payloadData,new String(payloadData.getData())));
 
         byte[] m3uadata = payloadData.getData();
         M3UAMessage m3UAMessage;

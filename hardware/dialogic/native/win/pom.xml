@@ -77,11 +77,11 @@
 						<id>javah</id>
 						<phase>generate-sources</phase>
 						<configuration>
-							<classNames>
-								<className>
+							<javahClassNames>
+								<javahClassName>
 									org.mobicents.ss7.hardware.dialogic.InterProcessCommunicator
-								</className>
-							</classNames>
+								</javahClassName>
+							</javahClassNames>
 						</configuration>
 						<goals>
 							<goal>javah</goal>
