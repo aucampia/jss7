@@ -128,7 +128,7 @@ public class FSM extends M3UATask {
      * @param name the name of transition.
      */
     public void signal(String name) throws UnknownTransitionException {
-
+        /*
         if (logger.isDebugEnabled()) {
             StringBuilder sb = new StringBuilder();
             for (StackTraceElement element: Thread.currentThread().getStackTrace())
@@ -138,6 +138,7 @@ public class FSM extends M3UATask {
             }
             logger.debug(sb.toString());
         }
+        */
 
         // check that start state defined
         if (start == null) {
